@@ -1,0 +1,189 @@
+body {
+  background-color: #c7c7c7;
+  font-family: "MyriadPro", Arial, Helvetica, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+  /* overflow: hidden; */
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("GothamPro.woff2") format("woff2"), url("GothamPro.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("GothamPro-Black.woff2") format("woff2"), url("GothamPro-Black.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("GothamPro-Bold.woff2") format("woff2"), url("GothamPro-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("GothamPro-Medium.woff2") format("woff2"), url("GothamPro-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("MyriadPro-Regular.woff2") format("woff2"), url("MyriadPro-Regular.woff") format("woff");
+}
+
+main {
+  margin: 5px 20px;
+}
+
+#chartdiv {
+  width: 100%;
+  max-height: 600px;
+  height: 70vh;
+}
+
+/* header start */
+header ul {
+  margin: 10px auto;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header ul li {
+  position: relative;
+  list-style: none;
+}
+
+header ul li a {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  display: block;
+  color: #40345c;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: bold;
+}
+
+header ul li a span {
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background-color: tomato;
+  z-index: -1;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+header ul li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+header ul li a:hover span {
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+header ul li a span:nth-child(1) {
+  left: 0;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+header ul li a span:nth-child(2) {
+  left: 25%;
+  -webkit-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+
+header ul li a span:nth-child(3) {
+  left: 50%;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+header ul li a span:nth-child(4) {
+  left: 75%;
+  -webkit-transition-delay: 0.45s;
+          transition-delay: 0.45s;
+}
+
+/* header end */
+/* team start */
+.team {
+  text-align: center;
+}
+
+.team .quote {
+  text-align: right;
+  font-weight: bold;
+  margin-right: 5%;
+}
+
+.team .quote i {
+  display: block;
+}
+
+.team .members {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+  margin: 0 10% 2em;
+}
+
+.team .members div {
+  padding: 0 10px;
+}
+
+.team .members img {
+  width: 50%;
+}
+
+.team h2 {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 0 15%;
+}
+
+/* team end */
+/*# sourceMappingURL=style.css.map */
