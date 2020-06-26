@@ -242,16 +242,16 @@ header ul li a span:nth-child(4) {
   padding: 5px;
 }
 
-.metodology h1 {
+.methodology h1 {
   text-align: center;
 }
 
-.metodology img {
+.methodology img {
   display: block;
   margin: 0 auto;
 }
 
-.metodology P {
+.methodology P {
   text-indent: 1.5em;
   text-align: justify;
 }
