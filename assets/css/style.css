@@ -80,7 +80,7 @@ header ul li {
 
 header ul li a {
   position: relative;
-  width: 100px;
+  width: 150px;
   height: 40px;
   display: block;
   color: #40345c;
@@ -186,6 +186,14 @@ header ul li a span:nth-child(4) {
   font-size: 1.2em;
   text-align: center;
   margin: 0 15%;
+}
+
+.team .contacts a {
+  color: #000;
+}
+
+.team .contacts a:hover {
+  color: #070775;
 }
 
 /* team end */
