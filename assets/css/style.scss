@@ -1,6 +1,7 @@
 body {
   background-color: #c7c7c7;
-  font-family: 'MyriadPro', Arial, Helvetica, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+  font-family: "MyriadPro", Arial, Helvetica, sans-serif, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto;
   /* overflow: hidden; */
   margin: 0;
   padding: 0;
@@ -9,48 +10,53 @@ body {
 }
 
 @font-face {
-  font-family: 'Gotham';
+  font-family: "Gotham";
   font-weight: 400;
   font-style: normal;
 
   font-display: swap;
-  src: url('GothamPro.woff2') format('woff2'), url('GothamPro.woff') format('woff');
+  src: url("GothamPro.woff2") format("woff2"),
+    url("GothamPro.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Gotham';
+  font-family: "Gotham";
   font-weight: 900;
   font-style: normal;
 
   font-display: swap;
-  src: url('GothamPro-Black.woff2') format('woff2'), url('GothamPro-Black.woff') format('woff');
+  src: url("GothamPro-Black.woff2") format("woff2"),
+    url("GothamPro-Black.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Gotham';
+  font-family: "Gotham";
   font-weight: 700;
   font-style: normal;
 
   font-display: swap;
-  src: url('GothamPro-Bold.woff2') format('woff2'), url('GothamPro-Bold.woff') format('woff');
+  src: url("GothamPro-Bold.woff2") format("woff2"),
+    url("GothamPro-Bold.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Gotham';
+  font-family: "Gotham";
   font-weight: 500;
   font-style: normal;
 
   font-display: swap;
-  src: url('GothamPro-Medium.woff2') format('woff2'), url('GothamPro-Medium.woff') format('woff');
+  src: url("GothamPro-Medium.woff2") format("woff2"),
+    url("GothamPro-Medium.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'MyriadPro';
+  font-family: "MyriadPro";
   font-weight: 400;
   font-style: normal;
 
   font-display: swap;
-  src: url('MyriadPro-Regular.woff2') format('woff2'), url('MyriadPro-Regular.woff') format('woff');
+  src: url("MyriadPro-Regular.woff2") format("woff2"),
+    url("MyriadPro-Regular.woff") format("woff");
 }
 
 main {
@@ -60,8 +66,7 @@ main {
 
 #chartdiv {
   width: 100%;
-  max-height: 600px;
-  height: 63vh;
+  height: 70%;
 }
 
 /* header start */
@@ -85,7 +90,7 @@ header ul {
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
-      transition: .5s;
+      transition: 0.5s;
       box-sizing: border-box;
       font-weight: bold;
 
@@ -97,7 +102,7 @@ header ul {
         z-index: -1;
         transform-origin: top;
         transform: scaleY(0);
-        transition: transform .5s;
+        transition: transform 0.5s;
       }
 
       &:hover {
@@ -149,17 +154,17 @@ header ul {
       display: block;
     }
   }
-  
+
   .members {
     display: flex;
     justify-content: space-between;
     text-align: center;
     margin: 0 10% 2em;
-  
+
     div {
       padding: 0 10px;
     }
-  
+
     img {
       width: 50%;
     }
@@ -190,18 +195,32 @@ header ul {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 100%; 
+    height: 100%;
 
     div {
-      display: flex;
+      display: block;
       height: 100%;
-      border: 1px solid black;
+      border: 1px solid rgba(58, 57, 57, 0.411);
       margin: 5px 10px;
       padding: 5px;
+      position: relative;
+
+      h2 {
+        display: block;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+      }
     }
 
     .big-block {
       height: 200%;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
   }
 }
@@ -214,9 +233,41 @@ header ul {
   div {
     display: flex;
     height: 100%;
-    border: 1px solid black;
+    border: 1px solid rgba(58, 57, 57, 0.411);
     margin: 5px 10px;
     padding: 5px;
+
+    a {
+      text-align: center;
+      width: 100%;
+
+      i {
+        color: #000;
+        text-decoration: none;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .pdf {
+    height: 25px;
+  }
+
+  .sign {
+    display: block;
+    border: none;
+    
+    img {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+  }
+  
+    div {
+      display: block;
+      border: none;
+      height: auto;
+    }
   }
 }
 
@@ -230,12 +281,131 @@ header ul {
     margin: 0 auto;
   }
 
-  P { 
-    text-indent: 1.5em; 
-    text-align: justify; 
-   }
+  P {
+    text-indent: 1.5em;
+    text-align: justify;
+  }
 }
 
 footer {
   flex: 0 0 auto;
+}
+
+.iksweb {
+  display: flex;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  color: #354251;
+  background: rgb(12, 250, 238);
+  border-radius: 0px;
+  width: 35%;
+  height: 10%;
+  border: 1px solid #354251;
+  position: absolute;
+  bottom: 0;
+  /* padding: 20px 0; */
+  /* margin: 0 auto; */
+  /* text-align: center; */
+  /* align-items: center; */
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 2px 13px 7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 13px 7px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 13px 7px rgba(0, 0, 0, 0.75);
+  padding: 0 3px;
+
+  span {
+    text-align: center;
+    width: 100%;
+  }
+
+  &:hover {
+    background: #91d0f2;
+    color: #ffffff;
+    border: 1px solid #354251;
+    transition: all 0.2s ease;
+  }
+}
+
+/* картинка на странице */
+.minimized {
+  // width: 300px;
+  cursor: pointer;
+  border: 1px solid #fff;
+}
+
+.minimized:hover {
+  outline: 3px solid rgb(148, 8, 85);
+}
+
+/* увеличенная картинка */
+#magnify {
+  display: none;
+
+  /* position: absolute; upd: 24.10.2016 */
+  position: fixed;
+  width: 60%;
+  max-width: 800px;
+  height: auto;
+  z-index: 9999;
+  top: 40px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: block;
+}
+
+#magnify img {
+  width: 100%;
+}
+
+/* затемняющий фон */
+#overlay {
+  display: none;
+
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  z-index: 9990;
+}
+
+/* кнопка закрытия */
+#close-popup {
+  width: 30px;
+  height: 30px;
+
+  background: #ffffff;
+  border: 1px solid #afafaf;
+  border-radius: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+#close-popup i {
+  width: 30px;
+  height: 30px;
+  background: url(https://codernote.ru/files/cross.png) no-repeat center center;
+  background-size: 16px 16px;
+  display: block;
+}
+
+@keyframes rota {
+  25% {
+    transform: rotate(360deg);
+  }
+}
+
+#close-popup:hover {
+  animation: rota 4s infinite normal;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }
