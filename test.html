@@ -16,6 +16,9 @@
     <script src="assets/map/worldLow.js"></script>
     <script src="assets/js/script.js"></script>
     <header>
+      <a href="#">
+        <img src="assets/img/logo.png" class="logo">
+      </a>
       <ul>
         <li>
             <a href="index.html">Home
@@ -66,6 +69,11 @@
           </a>
       </li>
       </ul>
+      <div class="login">
+        <a href="#">Sign in</a>
+        <span> / </span>
+        <a href="#">Sign out</a> 
+      </div>
     </header>
     <main>
       <section class="top-map-block">
@@ -87,25 +95,37 @@
           </div>
         </aside>
         <div class="main-content">
-          <div id="chartdiv" class=""></div>
+          <div id="chartdiv"></div>
+          <div id="info"></div>
+          <div id="capital"></div>
+          <div id="time"></div>
+          <div id="currency"></div>
+          <div id="excange"></div>
         </div>
         <aside>
           <div class="right widgets">
             <div class="image__wrapper">
-              <img src="assets/img/4.png" class="minimized">
+              <div id="img_1" class="minimized"></div>
             </div>
             <div class="big-block image__wrapper">
-              <img src="assets/img/3.png" class="minimized">
+              <div id="img_2" class="minimized"></div>
+            </div>
+            <div class="pdf">
+              <a href="assets/img/Top_Startups_To_Work_For_In_2019_According_To_LinkedIn.pdf">
+                <i class="fas fa-file-pdf"></i>
+                Top Startups in 2019
+              </a>
+            </div>
+            <div class="pdf">
+              <a href="assets/img/FLY_UP.pdf">
+                <i class="fas fa-file-pdf"></i>Project presentation
+              </a>
             </div>
           </div>
         </aside>
       </section>
-      <section class="bottom-map-block">
-        <div class="pdf">
-          <a href="assets/img/FLY_UP.pdf">
-            <i class="fas fa-file-pdf"></i>Project presentation
-          </a>
-        </div>
+      <!-- <section class="bottom-map-block">
+        <div></div>
           <div class="sign">
             <img src="assets/img/5.png"  >
               <div>
@@ -171,14 +191,7 @@
                 </section>
               </div>
           </div>
-        <div class="pdf">
-          <a href="assets/img/Top_Startups_To_Work_For_In_2019_According_To_LinkedIn.pdf">
-            <i class="fas fa-file-pdf"></i>
-            Top Startups in 2019
-          </a>
-
-        </div>
-      </section>
+      </section> -->
     </main>
   </body>
 </html>

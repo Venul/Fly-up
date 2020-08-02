@@ -50,7 +50,7 @@ body {
 }
 
 main {
-  margin: 5px;
+  margin: 75px 5px 5px;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
@@ -58,12 +58,53 @@ main {
 
 #chartdiv {
   width: 100%;
-  height: 70%;
+  height: 450px;
 }
 
 /* header start */
+header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 15% auto 15%;
+      grid-template-columns: 15% auto 15%;
+  position: fixed;
+  background-color: #b5b5b5;
+  z-index: 9999;
+  top: 0;
+  width: 100%;
+}
+
+header .logo {
+  width: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
+header .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .login a {
+  color: #000;
+  text-decoration: none;
+}
+
+header .login a:hover {
+  color: #0f58e0;
+  text-decoration: underline;
+}
+
 header ul {
-  margin: 10px auto;
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -199,6 +240,7 @@ header ul li a span:nth-child(4) {
 /* team end */
 /* test block start */
 .top-map-block {
+  margin-top: 50px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 15% auto 15%;
@@ -215,7 +257,26 @@ header ul li a span:nth-child(4) {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  height: 100%;
+  height: auto;
+  position: fixed;
+  width: 15%;
+}
+
+.top-map-block .widgets .pdf {
+  padding: 5px 2px;
+}
+
+.top-map-block .widgets .pdf a {
+  text-align: center;
+  width: 100%;
+  display: block;
+  color: #000;
+}
+
+.top-map-block .widgets .pdf a i {
+  color: #000;
+  text-decoration: none;
+  margin-right: 5px;
 }
 
 .top-map-block .widgets div {
@@ -225,6 +286,17 @@ header ul li a span:nth-child(4) {
   margin: 5px 10px;
   padding: 5px;
   position: relative;
+  /* картинка на странице */
+}
+
+.top-map-block .widgets div .minimized {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.top-map-block .widgets div .minimized:hover {
+  outline: 3px solid #940855;
 }
 
 .top-map-block .widgets div h2 {
@@ -257,24 +329,8 @@ header ul li a span:nth-child(4) {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
-  border: 1px solid rgba(58, 57, 57, 0.411);
   margin: 5px 10px;
   padding: 5px;
-}
-
-.bottom-map-block div a {
-  text-align: center;
-  width: 100%;
-}
-
-.bottom-map-block div a i {
-  color: #000;
-  text-decoration: none;
-  margin-right: 5px;
-}
-
-.bottom-map-block .pdf {
-  height: 25px;
 }
 
 .bottom-map-block .sign {
@@ -324,8 +380,12 @@ footer {
   color: #354251;
   background: #0cfaee;
   border-radius: 0px;
-  width: 35%;
-  height: 10%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   border: 1px solid #354251;
   position: absolute;
   bottom: 0;
@@ -353,16 +413,6 @@ footer {
   border: 1px solid #354251;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
-}
-
-/* картинка на странице */
-.minimized {
-  cursor: pointer;
-  border: 1px solid #fff;
-}
-
-.minimized:hover {
-  outline: 3px solid #940855;
 }
 
 /* увеличенная картинка */

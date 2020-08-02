@@ -60,80 +60,112 @@ body {
 }
 
 main {
-  margin: 5px;
+  margin: 75px 5px 5px;
   flex: 1 0 auto;
 }
 
 #chartdiv {
   width: 100%;
-  height: 70%;
+  height: 450px;
 }
 
 /* header start */
-header ul {
-  margin: 10px auto;
-  padding: 0;
-  display: flex;
-  justify-content: center;
+header {
+  display: grid;
+  grid-template-columns: 15% auto 15%;
+  position: fixed;
+  background-color: #b5b5b5;
+  z-index: 9999;
+  top: 0;
+  width: 100%;
 
-  li {
-    position: relative;
-    list-style: none;
+  .logo {
+    width: 4em;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     a {
-      position: relative;
-      width: 150px;
-      height: 40px;
-      display: block;
-      color: #40345c;
-      line-height: 40px;
-      text-align: center;
+      color: #000;
       text-decoration: none;
-      text-transform: uppercase;
-      transition: 0.5s;
-      box-sizing: border-box;
-      font-weight: bold;
-
-      span {
-        position: absolute;
-        width: 25%;
-        height: 100%;
-        background-color: tomato;
-        z-index: -1;
-        transform-origin: top;
-        transform: scaleY(0);
-        transition: transform 0.5s;
-      }
 
       &:hover {
-        color: #fff;
+        color: rgb(15, 88, 224);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  ul {
+    // margin: 10px auto 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+
+    li {
+      position: relative;
+      list-style: none;
+
+      a {
+        position: relative;
+        width: 150px;
+        height: 40px;
+        display: block;
+        color: #40345c;
+        line-height: 40px;
+        text-align: center;
         text-decoration: none;
+        text-transform: uppercase;
+        transition: 0.5s;
+        box-sizing: border-box;
+        font-weight: bold;
 
         span {
-          transform-origin: bottom;
-          transform: scaleY(1);
-        }
-      }
-
-      span {
-        &:nth-child(1) {
-          left: 0;
-          transition-delay: 0s;
-        }
-
-        &:nth-child(2) {
-          left: 25%;
-          transition-delay: 0.15s;
+          position: absolute;
+          width: 25%;
+          height: 100%;
+          background-color: tomato;
+          z-index: -1;
+          transform-origin: top;
+          transform: scaleY(0);
+          transition: transform 0.5s;
         }
 
-        &:nth-child(3) {
-          left: 50%;
-          transition-delay: 0.3s;
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+
+          span {
+            transform-origin: bottom;
+            transform: scaleY(1);
+          }
         }
 
-        &:nth-child(4) {
-          left: 75%;
-          transition-delay: 0.45s;
+        span {
+          &:nth-child(1) {
+            left: 0;
+            transition-delay: 0s;
+          }
+
+          &:nth-child(2) {
+            left: 25%;
+            transition-delay: 0.15s;
+          }
+
+          &:nth-child(3) {
+            left: 50%;
+            transition-delay: 0.3s;
+          }
+
+          &:nth-child(4) {
+            left: 75%;
+            transition-delay: 0.45s;
+          }
         }
       }
     }
@@ -188,6 +220,7 @@ header ul {
 
 /* test block start */
 .top-map-block {
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 15% auto 15%;
 
@@ -195,7 +228,26 @@ header ul {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 100%;
+    height: auto;
+    position: fixed;
+    width: 15%;
+
+    .pdf {
+      padding: 5px 2px;
+
+      a {
+        text-align: center;
+        width: 100%;
+        display: block;
+        color: #000;
+
+        i {
+          color: #000;
+          text-decoration: none;
+          margin-right: 5px;
+        }
+      }
+    }
 
     div {
       display: block;
@@ -204,6 +256,18 @@ header ul {
       margin: 5px 10px;
       padding: 5px;
       position: relative;
+
+      /* картинка на странице */
+        .minimized {
+          // width: 300px;
+          cursor: pointer;
+          margin: 0;
+          padding: 0;
+        }
+
+        .minimized:hover {
+          outline: 3px solid rgb(148, 8, 85);
+        }
 
       h2 {
         display: block;
@@ -233,36 +297,21 @@ header ul {
   div {
     display: flex;
     height: 100%;
-    border: 1px solid rgba(58, 57, 57, 0.411);
+    // border: 1px solid rgba(58, 57, 57, 0.411);
     margin: 5px 10px;
     padding: 5px;
-
-    a {
-      text-align: center;
-      width: 100%;
-
-      i {
-        color: #000;
-        text-decoration: none;
-        margin-right: 5px;
-      }
-    }
-  }
-
-  .pdf {
-    height: 25px;
   }
 
   .sign {
     display: block;
     border: none;
-    
+
     img {
       width: 80%;
       display: block;
       margin: 0 auto;
-  }
-  
+    }
+
     div {
       display: block;
       border: none;
@@ -299,8 +348,8 @@ footer {
   color: #354251;
   background: rgb(12, 250, 238);
   border-radius: 0px;
-  width: 35%;
-  height: 10%;
+  width: fit-content;
+  height: min-content;
   border: 1px solid #354251;
   position: absolute;
   bottom: 0;
@@ -328,17 +377,6 @@ footer {
     border: 1px solid #354251;
     transition: all 0.2s ease;
   }
-}
-
-/* картинка на странице */
-.minimized {
-  // width: 300px;
-  cursor: pointer;
-  border: 1px solid #fff;
-}
-
-.minimized:hover {
-  outline: 3px solid rgb(148, 8, 85);
 }
 
 /* увеличенная картинка */
@@ -409,3 +447,5 @@ footer {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+
+
