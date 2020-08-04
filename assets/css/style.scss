@@ -177,6 +177,13 @@ header {
 .team {
   text-align: center;
 
+  .contact {
+    h1 {
+      font-size: 2em;  
+      margin-bottom: 10px;
+    }
+  }
+
   .quote {
     text-align: right;
     font-weight: bold;
@@ -191,7 +198,7 @@ header {
     display: flex;
     justify-content: space-between;
     text-align: center;
-    margin: 0 10% 2em;
+    margin: 0;
 
     div {
       padding: 0 10px;
@@ -205,7 +212,7 @@ header {
   h2 {
     font-size: 1.2em;
     text-align: center;
-    margin: 0 15%;
+    margin: 0;
   }
 
   .contacts a {
@@ -269,7 +276,7 @@ header {
           outline: 3px solid rgb(148, 8, 85);
         }
 
-      h2 {
+      h3 {
         display: block;
         text-align: center;
         padding: 0;
@@ -339,6 +346,17 @@ header {
 footer {
   flex: 0 0 auto;
 }
+
+.about {
+  margin: 20px 0 10px;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+
+
 
 .iksweb {
   display: flex;

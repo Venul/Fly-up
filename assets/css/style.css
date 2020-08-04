@@ -194,6 +194,11 @@ header ul li a span:nth-child(4) {
   text-align: center;
 }
 
+.team .contact h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
 .team .quote {
   text-align: right;
   font-weight: bold;
@@ -212,7 +217,7 @@ header ul li a span:nth-child(4) {
       -ms-flex-pack: justify;
           justify-content: space-between;
   text-align: center;
-  margin: 0 10% 2em;
+  margin: 0;
 }
 
 .team .members div {
@@ -226,7 +231,7 @@ header ul li a span:nth-child(4) {
 .team h2 {
   font-size: 1.2em;
   text-align: center;
-  margin: 0 15%;
+  margin: 0;
 }
 
 .team .contacts a {
@@ -299,7 +304,7 @@ header ul li a span:nth-child(4) {
   outline: 3px solid #940855;
 }
 
-.top-map-block .widgets div h2 {
+.top-map-block .widgets div h3 {
   display: block;
   text-align: center;
   padding: 0;
@@ -368,6 +373,14 @@ footer {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
+}
+
+.about {
+  margin: 20px 0 10px;
+}
+
+.about h1 {
+  text-align: center;
 }
 
 .iksweb {

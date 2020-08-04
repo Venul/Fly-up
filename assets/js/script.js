@@ -1,22 +1,8 @@
-/**
- * --------------------------------------------------------
- * This demo was created using amCharts V4 preview release.
- *
- * V4 is the latest installement in amCharts data viz
- * library family, to be released in the first half of
- * 2018.
- *
- * For more information and documentation visit:
- * https://www.amcharts.com/docs/v4/
- * --------------------------------------------------------
- */
-
 // Set themes
 am4core.useTheme(am4themes_animated);
 
 // Create the map chart
 var chart = am4core.create("chartdiv", am4maps.MapChart);
-
 
 // Chech if proper geodata is loaded
 try {
@@ -29,23 +15,12 @@ try {
 // @see {@link https://www.amcharts.com/docs/v4/reference/mapchart/#projection_property}
 chart.projection = new am4maps.projections.Miller();
 
-// // Create map instance
-// var chart = am4core.create("chartdiv", am4maps.MapChart);
-// am4core.useTheme(am4themes_animated);
-// // Set map definition
-// chart.geodata = am4geodata_worldLow;
-
-// // Set projection
-// chart.projection = new am4maps.projections.Miller();
-
 // Create map polygon series
 var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
 // Make map load polygon (like country names) data from GeoJSON
 polygonSeries.useGeodata = true;
 polygonSeries.exclude = ["AQ"]; // Exclude Antractica
 polygonSeries.tooltip.fill = am4core.color("#000000");
-
-
 
 var colorSet = new am4core.ColorSet();
 
@@ -86,16 +61,16 @@ var currentActive;
 var polygonTemplate = polygonSeries.mapPolygons.template;
 polygonTemplate.tooltipText = "{name}";
 polygonTemplate.togglable = true;
-// polygonTemplate.fill = am4core.color("#5CAB7D");
 polygonTemplate.propertyFields.fill = "color";
 
+
 polygonTemplate.events.once("ready", function (ev) {
-var img_1 = document.getElementById("img_1");
-var img_2 = document.getElementById("img_2");
-var info = document.getElementById("info");
-img_1.innerHTML = '<img src="assets/img/3.png"/>';
-img_2.innerHTML = '<img src="assets/img/4.png"/>';
-info.innerHTML = "<i>Please, choose any country</i>";
+  var img_1 = document.getElementById("img_1");
+  var img_2 = document.getElementById("img_2");
+  var info = document.getElementById("info");
+  img_1.innerHTML = '<img src="assets/img/3.png" class="minimized" >';
+  img_2.innerHTML = '<img src="assets/img/4.png" class="minimized" >';
+  info.innerHTML = "<i>Please, choose any country</i>";
 });
 
 polygonTemplate.events.on("hit", function (ev) {
@@ -111,15 +86,14 @@ polygonTemplate.events.on("hit", function (ev) {
   var time = document.getElementById("time");
   var currency = document.getElementById("currency");
   var excange = document.getElementById("excange");
-  var img_1 = document.getElementById("img_1");
-  var img_2 = document.getElementById("img_2");
+
   info.innerHTML = "<h3>" + data.name + " (" + data.id + ")</h3> <br/>";
   capital.innerHTML = "<strong>" + "Capital: " + "</strong>" + (data.capital || '');
   time.innerHTML = "<strong>" + "Time: " + "</strong>" + (data.time || '');
   currency.innerHTML = "<strong>" + "Currency: " + "</strong>" + (data.currency || '');
   excange.innerHTML = "<strong>" + "Exchange rate against $: " + "</strong>" + (data.excange || '');
-  img_1.innerHTML = '<img src="' +(data.img_1 || 'assets/img/3.png') + '"/>';
-  img_2.innerHTML = '<img src="' +(data.img_2 || 'assets/img/4.png') + '"/>';
+  img_1.innerHTML = '<img src="' +(data.img_1 || 'assets/img/3.png') + '" class="minimized" >';
+  img_2.innerHTML = '<img src="' +(data.img_2 || 'assets/img/4.png') + '" class="minimized" >';
 
   if (data.description) {
     info.innerHTML += data.description;
@@ -127,10 +101,6 @@ polygonTemplate.events.on("hit", function (ev) {
     info.innerHTML += "<i>No description provided.</i>"
   }
 });
-
-// Create hover state and set alternative fill color
-// var hs = polygonTemplate.states.create("hover");
-// hs.properties.fill = am4core.color("#5A9367");
 
 var hoverState = polygonTemplate.states.create("hover");
 hoverState.properties.fill = colorSet.getIndex(0);
