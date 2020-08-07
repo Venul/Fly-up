@@ -23,38 +23,97 @@ polygonSeries.exclude = ["AQ"]; // Exclude Antractica
 polygonSeries.tooltip.fill = am4core.color("#000000");
 
 var colorSet = new am4core.ColorSet();
+var time = new Date().toLocaleTimeString('en-US', {timeZone: 'America/Denver'});
 
 // Add some custom data
 polygonSeries.data = [{
   "id": "US",
   "color": am4core.color("#3F4B3B"),
-  "description": "Пендостан",
-  "time": '22:24',
+  "description": "United States of America",
+  "time": 'America/Vancouver',
+  "flag": 'usa',
   "capital": "Washington",
-  "currency": "$",
+  "currency": "United States dollar ($) (USD)",
   "excange": "1$",
   "img_1": "https://cdn.lifehacker.ru/wp-content/uploads/2018/12/Kak-fotografirovat-kotikov-19-sovetov-ot-professionala_1544744286-1140x570.jpg",
   "img_2": "https://i.ytimg.com/vi/lkQ0LDx9jHs/maxresdefault.jpg"
 }, {
   "id": "RU",
   "color": am4core.color("#3F4B3B"),
-  "description": "This is Russia Blat!",
-  "time": '03:24',
-  "capital": "Moskva",
-  "currency": "derevyanniy",
+  "description": "Russian Federation",
+  "time": 'Europe/Moscow',
+  "flag": 'russia',
+  "capital": "Moscow",
+  "currency": "Russian ruble (₽) (RUB)",
   "excange": "74 руб",
   "img_1": "https://bipbap.ru/wp-content/uploads/2017/10/tmp695682350633189377-640x640.jpg",
   "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
 }, {
-  "id": "UA",
+  "id": "DE",
   "color": am4core.color("#3F4B3B"),
-  "description": "Привет из Украины",
-  "time": '04:24',
-  "capital": "Kyiv",
-  "currency": "grivna",
-  "excange": "28 грн",
-  "img_1": "https://s1.stc.all.kpcdn.net/putevoditel/projectid_103889/images/tild6531-3732-4462-a337-333237636234__1.jpg",
-  "img_2": "https://img.pravda.ru/image/preview/article/5/1/4/1042514_five.jpeg"
+  "description": "Germany",
+  "time": 'Europe/Berlin',
+  "flag": 'germany',
+  "capital": "Berlin",
+  "currency": "Euro (€) (EUR)",
+  "excange": "74 руб",
+  "img_1": "https://bipbap.ru/wp-content/uploads/2017/10/tmp695682350633189377-640x640.jpg",
+  "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
+}, {
+  "id": "CA",
+  "color": am4core.color("#3F4B3B"),
+  "description": "Canada",
+  "time": 'America/Toronto',
+  "flag": 'canada',
+  "capital": "Ottawa",
+  "currency": "Canadian dollar ($) (CAD)",
+  "excange": "74 руб",
+  "img_1": "https://bipbap.ru/wp-content/uploads/2017/10/tmp695682350633189377-640x640.jpg",
+  "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
+}, {
+  "id": "GB",
+  "color": am4core.color("#3F4B3B"),
+  "description": "United Kingdom of Great Britain",
+  "time": 'Europe/London',
+  "flag": 'GB',
+  "capital": "London",
+  "currency": "Pound sterling (GBP)",
+  "excange": "74 руб",
+  "img_1": "https://bipbap.ru/wp-content/uploads/2017/10/tmp695682350633189377-640x640.jpg",
+  "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
+}, {
+  "id": "JP",
+  "color": am4core.color("#3F4B3B"),
+  "description": "Japan",
+  "time": 'Asia/Tokyo',
+  "flag": 'japan',
+  "capital": "Tokyo",
+  "currency": "Japanese yen (¥) (JPY)",
+  "excange": "74 руб",
+  "img_1": "https://bipbap.ru/wp-content/uploads/2017/10/tmp695682350633189377-640x640.jpg",
+  "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
+}, {
+  "id": "IT",
+  "color": am4core.color("#3F4B3B"),
+  "description": "Italian Republic",
+  "time": 'Europe/Rome',
+  "flag": 'italy',
+  "capital": "Rome",
+  "currency": "Euro (€) (EUR)",
+  "excange": "74 руб",
+  "img_1": "https://bipbap.ru/wp-content/uploads/2017/10/tmp695682350633189377-640x640.jpg",
+  "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
+}, {  
+  "id": "FR",
+  "color": am4core.color("#3F4B3B"),
+  "description": "France",
+  "time": 'Europe/Paris',
+  "flag": 'france',
+  "capital": "Paris",
+  "currency": "Euro (€) (EUR)",
+  "excange": "74 руб",
+  "img_1": "https://bipbap.ru/wp-content/uploads/2017/10/tmp695682350633189377-640x640.jpg",
+  "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
 }]
 var currentActive;
 // Configure series
@@ -68,8 +127,8 @@ polygonTemplate.events.once("ready", function (ev) {
   var img_1 = document.getElementById("img_1");
   var img_2 = document.getElementById("img_2");
   var info = document.getElementById("info");
-  img_1.innerHTML = '<img src="assets/img/3.png" class="minimized" >';
-  img_2.innerHTML = '<img src="assets/img/4.png" class="minimized" >';
+  img_1.innerHTML = '<img src="assets/img/3.png" />';
+  img_2.innerHTML = '<img src="assets/img/4.png" />';
   info.innerHTML = "<i>Please, choose any country</i>";
 });
 
@@ -81,25 +140,22 @@ polygonTemplate.events.on("hit", function (ev) {
   currentActive = ev.target;
 
   var data = ev.target.dataItem.dataContext;
-
   var capital = document.getElementById("capital");
   var time = document.getElementById("time");
   var currency = document.getElementById("currency");
-  var excange = document.getElementById("excange");
+  var flag = document.getElementById("flag");
+  var description = document.getElementById("description");
+  // var excange = document.getElementById("excange");
 
   info.innerHTML = "<h3>" + data.name + " (" + data.id + ")</h3> <br/>";
   capital.innerHTML = "<strong>" + "Capital: " + "</strong>" + (data.capital || '');
-  time.innerHTML = "<strong>" + "Time: " + "</strong>" + (data.time || '');
+  time.innerHTML = "<strong>" + "Time: " + "</strong>" + (new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', timeZone: data.time }) || '');
   currency.innerHTML = "<strong>" + "Currency: " + "</strong>" + (data.currency || '');
-  excange.innerHTML = "<strong>" + "Exchange rate against $: " + "</strong>" + (data.excange || '');
-  img_1.innerHTML = '<img src="' +(data.img_1 || 'assets/img/3.png') + '" class="minimized" >';
-  img_2.innerHTML = '<img src="' +(data.img_2 || 'assets/img/4.png') + '" class="minimized" >';
-
-  if (data.description) {
-    info.innerHTML += data.description;
-  } else {
-    info.innerHTML += "<i>No description provided.</i>"
-  }
+  // excange.innerHTML = "<strong>" + "Exchange rate against $: " + "</strong>" + (data.excange || '');
+  flag.innerHTML =  '<img src="assets/img/flags/' + data.flag + '.gif" />';
+  img_1.innerHTML = '<img src="' +(data.img_1 || 'assets/img/3.png') + '" class="minimized" />';
+  img_2.innerHTML = '<img src="' +(data.img_2 || 'assets/img/4.png') + '" class="minimized" />';
+  description.innerHTML = data.description || "<i>No description provided.</i>";
 });
 
 var hoverState = polygonTemplate.states.create("hover");
