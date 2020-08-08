@@ -1,13 +1,3 @@
-body {
-  background-color: #868686;
-  font-family: "MyriadPro", Arial, Helvetica, sans-serif, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto;
-  margin: 0;
-  padding: 0;
-  font-size: 1.1em;
-  line-height: 1.4;
-}
-
 @font-face {
   font-family: "Gotham";
   font-weight: 400;
@@ -58,14 +48,21 @@ body {
     url("MyriadPro-Regular.woff") format("woff");
 }
 
+body {
+  background-color: #212327;
+  font-family: "MyriadPro", Arial, Helvetica, sans-serif, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  line-height: 1.4;
+  color: rgb(219, 219, 219);
+  // color: #adabab;
+}
+
 main {
   margin: 55px 5px 5px;
   flex: 1 0 auto;
-}
-
-#chartdiv {
-  width: 100%;
-  height: 450px;
 }
 
 /* header start */
@@ -84,22 +81,6 @@ header {
     width: 4em;
     display: flex;
     margin: 2px auto 0;
-  }
-
-  .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      color: #000;
-      text-decoration: none;
-
-      &:hover {
-        color: rgb(15, 88, 224);
-        text-decoration: underline;
-      }
-    }
   }
 
   ul {
@@ -135,19 +116,7 @@ header {
           transform-origin: top;
           transform: scaleY(0);
           transition: transform 0.5s;
-        }
 
-        &:hover {
-          color: #fff;
-          text-decoration: none;
-
-          span {
-            transform-origin: bottom;
-            transform: scaleY(1);
-          }
-        }
-
-        span {
           &:nth-child(1) {
             left: 0;
             transition-delay: 0s;
@@ -168,7 +137,37 @@ header {
             transition-delay: 0.45s;
           }
         }
+
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+
+          span {
+            transform-origin: bottom;
+            transform: scaleY(1);
+          }
+        }
       }
+    } 
+  }
+
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      color: #000;
+      text-decoration: none;
+
+      &:hover {
+        color: rgb(15, 88, 224);
+        text-decoration: none;
+      }
+    }
+
+    span {
+      color: #000;
     }
   }
 }
@@ -177,13 +176,6 @@ header {
 /* team start */
 .team {
   text-align: center;
-
-  .contact {
-    h1 {
-      font-size: 2em;  
-      margin-bottom: 10px;
-    }
-  }
 
   .quote {
     text-align: right;
@@ -216,17 +208,30 @@ header {
     margin: 0;
   }
 
-  .contacts a {
-    color: #000;
+  .contact {
+    h1 {
+      font-size: 2em;  
+      margin-bottom: 10px;
+    }
 
-    &:hover {
-      color: rgb(7, 7, 117);
+    a {
+      color: #fff;
+  
+      &:hover {
+        color: rgb(59, 59, 184);
+      }
     }
   }
 }
 /* team end */
 
-/* test block start */
+/* map block start */
+#chartdiv {
+  width: 100%;
+  height: 450px;
+}
+
+// side blocks
 .top-map-block {
   margin-top: 50px;
   display: grid;
@@ -247,10 +252,13 @@ header {
         text-align: center;
         width: 100%;
         display: block;
-        color: #000;
+        color: #fff;
+        
+        &:hover {
+          color: blue;
+        }
 
         i {
-          color: #000;
           text-decoration: none;
           margin-right: 5px;
         }
@@ -265,23 +273,21 @@ header {
       padding: 5px;
       position: relative;
 
-      /* картинка на странице */
-        .minimized {
-          // width: 300px;
-          cursor: pointer;
-          margin: 0;
-          padding: 0;
-        }
-
-        .minimized:hover {
-          outline: 3px solid rgb(148, 8, 85);
-        }
-
       h3 {
         display: block;
         text-align: center;
         padding: 0;
         margin: 0;
+      }
+
+      .minimized {
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+      }
+
+      .minimized:hover {
+        outline: 3px solid rgb(148, 8, 85);
       }
     }
 
@@ -305,60 +311,12 @@ header {
   div {
     display: flex;
     height: 100%;
-    // border: 1px solid rgba(58, 57, 57, 0.411);
     margin: 5px 10px;
     padding: 5px;
   }
-
-  .sign {
-    display: block;
-    border: none;
-
-    img {
-      width: 80%;
-      display: block;
-      margin: 0 auto;
-    }
-
-    div {
-      display: block;
-      border: none;
-      height: auto;
-    }
-  }
 }
 
-.methodology {
-  h1 {
-    text-align: center;
-  }
-
-  img {
-    display: block;
-    margin: 0 auto;
-  }
-
-  P {
-    text-indent: 1.5em;
-    text-align: justify;
-  }
-}
-
-footer {
-  flex: 0 0 auto;
-}
-
-.about {
-  margin: 20px 0 10px;
-
-  h1 {
-    text-align: center;
-  }
-}
-
-
-
-
+// button GDP
 .iksweb {
   display: flex;
   cursor: pointer;
@@ -372,10 +330,6 @@ footer {
   border: 1px solid #354251;
   position: absolute;
   bottom: 0;
-  /* padding: 20px 0; */
-  /* margin: 0 auto; */
-  /* text-align: center; */
-  /* align-items: center; */
   right: 0;
   left: 0;
   text-align: center;
@@ -397,12 +351,41 @@ footer {
     transition: all 0.2s ease;
   }
 }
+// end button
+// end side blocks
 
-/* увеличенная картинка */
+.methodology {
+  h1 {
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  p {
+    text-indent: 1.5em;
+    text-align: justify;
+  }
+}
+
+footer {
+  flex: 0 0 auto;
+}
+
+.about {
+  margin: 20px 0 10px;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+// start scale img after click
+/* scale img */
 #magnify {
   display: none;
-
-  /* position: absolute; upd: 24.10.2016 */
   position: fixed;
   width: 60%;
   max-width: 800px;
@@ -419,7 +402,7 @@ footer {
   width: 100%;
 }
 
-/* затемняющий фон */
+/* fade background */
 #overlay {
   display: none;
 
@@ -433,7 +416,7 @@ footer {
   z-index: 9990;
 }
 
-/* кнопка закрытия */
+/* close buton */
 #close-popup {
   width: 30px;
   height: 30px;
@@ -466,5 +449,4 @@ footer {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-
-
+// end scale img

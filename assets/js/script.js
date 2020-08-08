@@ -12,7 +12,6 @@ try {
 }
 
 // Set projection to be used
-// @see {@link https://www.amcharts.com/docs/v4/reference/mapchart/#projection_property}
 chart.projection = new am4maps.projections.Miller();
 
 // Create map polygon series
@@ -20,15 +19,15 @@ var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
 // Make map load polygon (like country names) data from GeoJSON
 polygonSeries.useGeodata = true;
 polygonSeries.exclude = ["AQ"]; // Exclude Antractica
-polygonSeries.tooltip.fill = am4core.color("#000000");
-
+polygonSeries.tooltip.fill = am4core.color("red");
+polygonSeries.mapPolygons.template.fill = am4core.color("#5f5f5f");
+polygonSeries.mapPolygons.template.stroke = am4core.color("#adabab");
 var colorSet = new am4core.ColorSet();
-var time = new Date().toLocaleTimeString('en-US', {timeZone: 'America/Denver'});
 
 // Add some custom data
 polygonSeries.data = [{
   "id": "US",
-  "color": am4core.color("#3F4B3B"),
+  "color": am4core.color("rgb(64, 89, 197)"),
   "description": "United States of America",
   "time": 'America/Vancouver',
   "flag": 'usa',
@@ -39,7 +38,7 @@ polygonSeries.data = [{
   "img_2": "https://i.ytimg.com/vi/lkQ0LDx9jHs/maxresdefault.jpg"
 }, {
   "id": "RU",
-  "color": am4core.color("#3F4B3B"),
+  "color": am4core.color("rgb(64, 89, 197)"),
   "description": "Russian Federation",
   "time": 'Europe/Moscow',
   "flag": 'russia',
@@ -50,7 +49,7 @@ polygonSeries.data = [{
   "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
 }, {
   "id": "DE",
-  "color": am4core.color("#3F4B3B"),
+  "color": am4core.color("rgb(64, 89, 197)"),
   "description": "Germany",
   "time": 'Europe/Berlin',
   "flag": 'germany',
@@ -61,7 +60,7 @@ polygonSeries.data = [{
   "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
 }, {
   "id": "CA",
-  "color": am4core.color("#3F4B3B"),
+  "color": am4core.color("rgb(64, 89, 197)"),
   "description": "Canada",
   "time": 'America/Toronto',
   "flag": 'canada',
@@ -72,7 +71,7 @@ polygonSeries.data = [{
   "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
 }, {
   "id": "GB",
-  "color": am4core.color("#3F4B3B"),
+  "color": am4core.color("rgb(64, 89, 197)"),
   "description": "United Kingdom of Great Britain",
   "time": 'Europe/London',
   "flag": 'GB',
@@ -83,7 +82,7 @@ polygonSeries.data = [{
   "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
 }, {
   "id": "JP",
-  "color": am4core.color("#3F4B3B"),
+  "color": am4core.color("rgb(64, 89, 197)"),
   "description": "Japan",
   "time": 'Asia/Tokyo',
   "flag": 'japan',
@@ -94,7 +93,7 @@ polygonSeries.data = [{
   "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
 }, {
   "id": "IT",
-  "color": am4core.color("#3F4B3B"),
+  "color": am4core.color("rgb(64, 89, 197)"),
   "description": "Italian Republic",
   "time": 'Europe/Rome',
   "flag": 'italy',
@@ -105,7 +104,7 @@ polygonSeries.data = [{
   "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
 }, {  
   "id": "FR",
-  "color": am4core.color("#3F4B3B"),
+  "color": am4core.color("rgb(64, 89, 197)"),
   "description": "France",
   "time": 'Europe/Paris',
   "flag": 'france',
@@ -115,6 +114,7 @@ polygonSeries.data = [{
   "img_1": "https://bipbap.ru/wp-content/uploads/2017/10/tmp695682350633189377-640x640.jpg",
   "img_2": "https://proprikol.ru/wp-content/uploads/2019/07/kartinki-sobachki-35.jpg"
 }]
+
 var currentActive;
 // Configure series
 var polygonTemplate = polygonSeries.mapPolygons.template;
@@ -122,13 +122,12 @@ polygonTemplate.tooltipText = "{name}";
 polygonTemplate.togglable = true;
 polygonTemplate.propertyFields.fill = "color";
 
-
 polygonTemplate.events.once("ready", function (ev) {
   var img_1 = document.getElementById("img_1");
   var img_2 = document.getElementById("img_2");
   var info = document.getElementById("info");
-  img_1.innerHTML = '<img src="assets/img/3.png" />';
-  img_2.innerHTML = '<img src="assets/img/4.png" />';
+  img_1.innerHTML = '<img src="assets/img/side/3.png" />';
+  img_2.innerHTML = '<img src="assets/img/side/4.png" />';
   info.innerHTML = "<i>Please, choose any country</i>";
 });
 
@@ -136,6 +135,7 @@ polygonTemplate.events.on("hit", function (ev) {
   if (currentActive) {
     currentActive.isActive = false;
   }
+
   chart.zoomToMapObject(ev.target, 3, true);
   currentActive = ev.target;
 
@@ -146,16 +146,22 @@ polygonTemplate.events.on("hit", function (ev) {
   var flag = document.getElementById("flag");
   var description = document.getElementById("description");
   // var excange = document.getElementById("excange");
+  var ajaxParam = {code: data.id};
+  $.ajax({
+    type: 'POST',
+    url: 'http://cite-bank.com/click_country.php',
+    data: ajaxParam
+  });
 
   info.innerHTML = "<h3>" + data.name + " (" + data.id + ")</h3> <br/>";
   capital.innerHTML = "<strong>" + "Capital: " + "</strong>" + (data.capital || '');
   time.innerHTML = "<strong>" + "Time: " + "</strong>" + (new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', timeZone: data.time }) || '');
   currency.innerHTML = "<strong>" + "Currency: " + "</strong>" + (data.currency || '');
-  // excange.innerHTML = "<strong>" + "Exchange rate against $: " + "</strong>" + (data.excange || '');
   flag.innerHTML =  '<img src="assets/img/flags/' + data.flag + '.gif" />';
-  img_1.innerHTML = '<img src="' +(data.img_1 || 'assets/img/3.png') + '" class="minimized" />';
-  img_2.innerHTML = '<img src="' +(data.img_2 || 'assets/img/4.png') + '" class="minimized" />';
+  img_1.innerHTML = '<img src="' +(data.img_1 || 'assets/img/side/3.png') + '" class="minimized" />';
+  img_2.innerHTML = '<img src="' +(data.img_2 || 'assets/img/side/4.png') + '" class="minimized" />';
   description.innerHTML = data.description || "<i>No description provided.</i>";
+    // excange.innerHTML = "<strong>" + "Exchange rate against $: " + "</strong>" + (data.excange || '');
 });
 
 var hoverState = polygonTemplate.states.create("hover");
